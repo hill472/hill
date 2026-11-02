@@ -1,0 +1,41 @@
+[project]
+name = "llm-proxy"
+version = "2.1.2"
+description = "One API LLM proxy with unified routing and customizable request and response transformations"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.1.3",
+    "gevent>=26.4.0",
+    "pyyaml>=6.0.3",
+    "requests>=2.33.1",
+    "urllib3>=2.6.3",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+src = ["src", "tests", "hooks"]
+extend-exclude = [
+    "src/presentation/static/vendor",
+]
+
+[tool.ruff.lint]
+select = [
+    "E4",
+    "E7",
+    "E9",
+    "F",
+    "I",
+    "UP006",
+    "UP007",
+    "UP035",
+    "UP045",
+]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+docstring-code-format = false

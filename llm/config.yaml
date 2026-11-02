@@ -1,0 +1,38 @@
+server:
+  port: 31943
+  host: 127.0.0.1
+providers:
+- name: codeagent
+  enabled: true
+  api: https://snapengine.cida.cce.prod-szv-g.dragon.tools.huawei.com/api/v2/chat/completions
+  source_format: openai_chat
+  force_upstream_stream: true
+  verify_ssl: false
+  model_list:
+  - Qwen3.6-27B-CodeAgent-VL
+  - maas-DeepSeek-V4-Flash-volcengine-codeagent
+  - maas-glm-5.1-zhipu
+  - maas-glm-5.2-volcengine-codeagent
+  - maas-qwen3.7-max
+  - maas-qwen3.7-plus
+  - maas-qwen3.7-flash
+  hook: codeagent_hook.py
+  proxy_mode: direct
+- name: codemate
+  enabled: true
+  api: https://snapengine.codemate.cce.prod-kwe-g.dragon.tools.huawei.com/api/v2/chat/completions
+  source_format: openai_chat
+  force_upstream_stream: true
+  verify_ssl: false
+  model_list:
+  - Qwen3-32B-All-V1
+  - Qwen3-Coder-30B-A3B-Instruct
+  - Qwen3.6-27B-SHR-VL
+  - maas-MiniMax-M3
+  - maas-glm-5.1-aliyun
+  - maas-glm-5.1-zhipu
+  hook: codemate_hook.py
+  proxy_mode: direct
+auth_groups: []
+model_mapping:
+  enabled: true
